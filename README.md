@@ -34,10 +34,19 @@ sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 ```
+- Verify the `nginx` user exists on the server
+```BASH
+ps -ef | grep nginx
+```
+- If the user exists, you will see an output like:
+``` BASH
+nginx     1234     1  0 ... nginx: worker process
+```
+> Note: This is important to verify on the server because it depends entirely on how the `deploy.sh` script handles file ownership and permissions.
 
 3. Build Your Static Website
 
-On your local machine, create a directory structure:
+- On your local machine, create a directory structure:
 ```BASH
 my-website/
 ├── index.html
@@ -47,5 +56,22 @@ my-website/
 
 > Note: If you are unfamiliar with [HTML](https://www.w3schools.com/html/default.asp) or [CSS](https://www.w3schools.com/css/default.asp), you can explore introductory resources such as W3Schools for quick, beginner-friendly guidance. 
 
-4. 
+4. Install `rsync` & Deploy with `deploy.sh` Script
+
+- Ensure `rsync` is properly installed.
+```BASH
+sudo apt update && sudo apt install rsync -y
+```
+
+- Ensure the `deploy.sh` script is executable and then run the script:
+```BASH
+chmod +x deploy.sh
+```
+> Note: adjust `KEY_PATH` and `HOST` before use.
+```BASH
+sudo bash deploy.sh
+```
+
+
+
 
