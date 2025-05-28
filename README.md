@@ -16,7 +16,6 @@ Designed to build foundational skills, this setup introduces key concepts in web
 - A basic HTML/CSS Static Site
 - `rsync` Installed Locally
 - SSH Key-Based Access to EC2
-- (*Optional*) Free Domain Name via [Freenom](https://www.freenom.com/en/index.html?lang=en) or Simliar
 
 ---
 
@@ -24,6 +23,8 @@ Designed to build foundational skills, this setup introduces key concepts in web
 
 1. Launch an EC2 Instance and Connect via SSH
 > Refer to [SSH Remote Server Setup](https://github.com/TLowest/ssh-remote-server-setup) for specific instructions.
+>
+> Set inbound rules to allow SSH (Port 22) and HTTP (Port 80)
 
 2. Install and Configure Nginx on EC2 Instance
 ```BASH
@@ -71,6 +72,19 @@ chmod +x deploy.sh
 ```BASH
 sudo bash deploy.sh
 ```
+- When you run `deploy.sh`, the output will look like this:
+
+![Screenshot](final-result/deploy.sh-output.png)
+
+---
+
+### Final Results
+
+You can now view the site at `http://<your-ec2-ip>`
+
+Website Screenshot
+
+![Screenshot](final-result/static-site-preview.png)
 
 
 
